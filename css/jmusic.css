@@ -1,0 +1,1002 @@
+body {
+	background-image: url(./../images/bg.png);
+	background-repeat:no-repeat;
+	background-size:cover; 
+}
+html,body,ul,img,li,p {
+	margin:0;padding:0;
+	font-family: "Microsoft Yahei";
+	font-size:12px;
+}
+input, textarea, select {
+	font-family:inherit;
+	font-size:inherit;
+	font-weight:inherit;
+}
+em {
+	font-style:normal;
+	font-weight:normal;
+}
+li {
+	list-style:none;
+}
+.i_mplayer .ico-ctrl,.PCD-mplayer .ico-ctrl {
+	background-image:url(../images/ico_btn_player.png);
+}
+.iM-bg {
+	background: url(../images/player_bg.png);
+}
+.i_mplayer {
+	transition: left 0.5s ease 0s;
+	position: fixed;
+	bottom: 20px;
+	left: -690px;
+	z-index: 9999;
+}
+.i_mplayer .tcol-sub {
+	color:#808080;
+}
+.i_mplayer a {
+	color:#fff;
+	text-decoration:none;
+}
+.my-player {
+	position:relative;
+	display: inline-block;
+	float: left;
+	border:1px solid blue;
+	/* background: rgba(255,255,255,0.5); */
+}
+.unfold-area {
+	position:relative;
+	display:inline-block;
+	float:left;
+	width:660px;
+	padding-top:2px;
+}
+.unfold-bg {
+	width:660px;
+	height:75px;
+	background: url(../images/player_bg.png);
+}
+.time-wrap {
+	position:relative;
+}
+.time-wrap .time-bar {
+	height:3px;
+	background: #5a5a5a;
+	cursor:pointer;
+}
+.time-wrap .progress {
+	position:absolute;
+	height:3px;
+	width:0%;
+	background: #888;
+}
+.time-bar .cur-time-bg {
+	position:relative;
+	height:3px;
+	background: #fa7d3c;
+	z-index: 998;
+}
+.cur-time-bg .cur-time {
+	position:absolute;
+	width:7px;
+	height:7px;
+	top:-2px;
+	right:-2px;
+	border-radius:7px;
+	background: #fa7d3c;
+	z-index:999;
+}
+.time-wrap .time-count {
+	position:absolute;
+	height:14px;
+	bottom:-17px;
+	right:5px;
+}
+.time-wrap .layer-time {
+	top:-20px;
+	left:385px;
+	z-index: 1;
+	pointer-events:none;
+	position:absolute;
+	width:40px;
+	height:15px;
+	color:#808080;
+	text-align:center;
+	background: #191919;
+	border:solid 1px #4d4d4d;
+	border-radius:3px;
+	display:none;
+	}
+.time-wrap .layer-time:before, .time-wrap .layer-time:after{
+	content: ""; 
+	width: 0; 
+	height: 0; 
+	position: absolute;
+	display: block; 
+	border-width: 4px; 
+	border-style: solid;  
+}
+/**
+ * 用伪类制作小三角
+ */
+.time-wrap .layer-time:before{
+	bottom: -8px; 
+	left: 15px; 
+	border-color: #4d4d4d transparent transparent transparent;
+}
+.time-wrap .layer-time:after{
+	bottom: -7px; 
+	left: 15px; 
+	border-color: #191919 transparent transparent transparent;
+}
+.layer-time .content {
+	position:relative;
+	display:inline-block;
+}
+/**
+ * 播放器的控制面板
+ */
+.main-panel {
+	position:relative;
+	margin:10px 17px 10px 8px;
+}
+.main-panel a, .main-panel span {
+	display:inline-block;
+}
+.main-panel .music-info {
+	display:inline-block;
+	float:left;
+	width:181px;
+	padding-right:10px;
+	border-right:1px solid #4d4d4d;
+}
+.music-info .music-pic {
+	float:left;
+	width:50px;
+}
+.music-info .music-pic .pic img {
+	height:50px;
+	width:50px;
+}
+.music-info .music-detail {
+	margin-left:55px;
+}
+.music-info .name {
+	display:block;
+	color:#fff;
+	font-weight:bold;
+}
+.music-info .author {
+	margin-right:5px;
+}
+.music-info .source {
+	color:#fa7d3c;
+	margin-left:6px;
+}
+.autocut {
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+.music-detail .author-bar {
+	padding-top:4px;
+	line-height:14px;
+	overflow:hidden;
+}
+.music-detail .source-bar {
+	padding-top:6px;
+}
+/**
+ * 音乐播放器的控制按钮
+ */
+.main-panel .contrl-panel {
+	margin:16px 0 0 24px;
+	font-size:0;
+	position:relative;
+	float:left;
+}
+.contrl-panel .layer-loop {
+	display:none;
+	position:absolute;
+	bottom:-5px;
+	left:123px;
+	padding:8px 6px 2px 6px;
+	background: #3a3a3a;
+	border-radius:3px;
+}
+.layer-loop .ico-ctrl {
+	display:block;
+	margin:0 0 8px 0;
+	vertical-align: 0;
+}
+/*.layer-loop */
+.contrl-panel .ico-rand {
+	width:18px;
+	height:19px;
+	background-repeat: no-repeat;
+	background-position: -120px -60px;
+}
+.contrl-panel .ico-solo {
+	width:18px;
+	height:19px;
+	background-repeat: no-repeat;
+	background-position: -120px 0px;
+}
+.contrl-panel .ico-loop {
+	width:18px;
+	height:19px;
+	background-repeat: no-repeat;
+	background-position: -120px -30px;
+}
+.layer-loop .ico-rand:hover {
+	background-repeat: no-repeat;
+	background-position: -150px -60px;
+}
+.layer-loop .ico-solo:hover {
+	background-repeat: no-repeat;
+	background-position: -150px 0px;
+}
+.layer-loop .ico-loop:hover {
+	background-repeat: no-repeat;
+	background-position: -150px -30px;
+}
+.contrl-bar {
+	
+}
+.contrl-bar .base-ctrl {
+	display:inline-block;
+	float:left;
+}
+.base-ctrl .ico-ctrl {
+	margin-right:25px;
+	background-color:transparent;
+}
+.base-ctrl .ico-prev {
+	vertical-align:-3px;
+	width:16px;
+	height:19px;
+	background-repeat: no-repeat;
+	background-position: -65px 0;
+}
+.base-ctrl .ico-play {
+	vertical-align: -6px;
+	width:22px;
+	height:25px;
+	background-repeat: no-repeat;
+	background-position: -65px -60px;
+	background-color:transparent;
+}
+.base-ctrl .ico-playing {
+	vertical-align: -6px;
+	width:22px;
+	height:25px;
+	background-repeat: no-repeat;
+	background-position: -65px -90px;
+	background-color:transparent;
+}
+.base-ctrl .ico-next {
+	vertical-align: -3px;
+	width:16px;
+	height:19px;
+	background-repeat: no-repeat;
+	background-position: -65px -30px;
+	background-color:transparent;
+}
+.base-ctrl .ico-loop, .base-ctrl .ico-solo, .base-ctrl .ico-rand {
+	vertical-align: -3px;
+	width:18px;
+	height:19px;
+}
+.base-ctrl .ico-loop {
+	background-repeat: no-repeat;
+	background-position: -120px -30px;
+	background-color:transparent;
+}
+/**
+ * 当播放按钮控制面板的所有按钮hover事件
+ */
+.base-ctrl .ico-prev:hover {
+	background-repeat: no-repeat;
+	background-position: -90px 0;
+	background-color:transparent;
+}
+.base-ctrl .ico-play:hover {
+	background-repeat: no-repeat;
+	background-position: -90px -60px;
+	background-color:transparent;
+}
+.base-ctrl .ico-next:hover {
+	background-repeat: no-repeat;
+	background-position: -90px -30px;
+	background-color:transparent;
+}
+.base-ctrl .ico-loop:hover {
+	background-repeat: no-repeat;
+	background-position: -150px -30px;
+	background-color:transparent;
+}
+/**
+ * 音量控制
+ */
+.contrl-bar .vol-ctrl {
+	margin:6px 0 0 1px;
+	float:left;
+	cursor:pointer;
+}
+.vol-ctrl .ico-vol {
+	margin:0;
+	width:15px;
+	height:14px;
+	background-repeat: no-repeat;
+	background-position: -25px -60px;
+	background-color:transparent;
+}
+.vol-ctrl .ico-vol:hover {
+	background-repeat: no-repeat;
+	background-position: -45px -60px;
+	background-color:transparent;
+}
+.vol-ctrl .ico-mute {
+	margin:0;
+	width:15px;
+	height:14px;
+	background-repeat: no-repeat;
+	background-position: -25px -80px;
+	background-color:transparent;
+}
+.vol-ctrl .ico-mute:hover {
+	background-repeat: no-repeat;
+	background-position: -45px -80px;
+	background-color:transparent;
+}
+.vol-ctrl .ctrl-bar {
+	display:inline-block;
+	width:74px;
+	height:3px;
+	margin-left:12px;
+	vertical-align: 5px;
+	background: #595959;
+}
+.vol-ctrl .cur-volmute{
+	background: #b3b3b3;
+}
+.vol-ctrl .cur-vol {
+	position:relative;
+	height:3px;
+}
+.vol-ctrl .ctrl-bar .ico-curvol {
+	position:absolute;
+	top:-6px;
+	right:-6px;
+	width:15px;
+	height:15px;
+	background-repeat: no-repeat;
+	background-position: -25px -100px;
+	background-color:transparent;
+}
+.vol-ctrl .ctrl-bar .ico-curvol:hover {
+	background-repeat: no-repeat;
+	background-position: -45px -100px;
+	background-color:transparent;
+}
+/**
+ * 播放器控制面板配置项
+ */
+.contrl-bar .opt-ctrl {
+	margin:-3px 0 0 10px;
+	float:left;
+}
+.opt-ctrl .ico-like {
+	margin-left:10px;
+	float:left;
+	width:30px;
+	height:30px;
+	background-repeat: no-repeat;
+	background-position: -180px 0;
+	background-color:transparent;
+}
+.opt-ctrl .ico-share {
+	margin-left:10px;
+	float:left;
+	width:30px;
+	height:30px;
+	background-repeat: no-repeat;
+	background-position: -180px -40px;
+	background-color:transparent;
+}
+.opt-ctrl .ico-list {
+	margin:10px 0 0 20px;
+	float:left;
+	width:11px;
+	height:10px;
+	background-repeat: no-repeat;
+	background-position: -25px -120px;
+	background-color:transparent;
+}
+.opt-ctrl .ico-lyric-open {
+	background-repeat: no-repeat;
+	background-position: -100px -180px;
+	background-color:transparent;
+}
+.opt-ctrl .ico-lyric {
+	margin:8px 0 0 11px;
+	float:left;
+	text-align:center;
+	font-size:12px;
+	color:#808080;
+}
+
+/**
+ * 播放面板控制按钮右侧的点赞分享hover事件
+ */
+.opt-ctrl .ico-like:hover {
+	background-repeat: no-repeat;
+	background-position: -220px 0;
+	background-color:transparent;
+}
+.opt-ctrl .ico-share:hover {
+	background-repeat: no-repeat;
+	background-position: -220px -40px;
+	background-color:transparent;
+}
+.opt-ctrl .ico-list:hover {
+	background-repeat: no-repeat;
+	background-position: -45px -120px;
+	background-color:transparent;
+}
+/*.i-controls {
+	width:660px;
+	height:75px;
+	float:left;
+}*/
+/**
+ * 折叠按钮 fold-ctrl ↓
+ */
+.fold-ctrl-area {
+	height:40px;
+	width:25px;
+	margin-top:2px;
+	padding-top:35px;
+	position:relative;
+	border-radius:0 2px 2px 0;
+	cursor:pointer;
+	background: #000;
+	float:left;
+}
+.fold-ctrl-area .mask {
+	width:13px;
+	height:18px;
+	margin:0 auto;
+	text-align:center;
+}
+.fold-ctrl-area .ico-fold {
+	display:block;
+	width:6px;
+	height:10px;
+	text-decoration:none;
+	background-repeat: no-repeat;
+	background-position: 0 -15px;
+	background-color:transparent;
+}
+.fold-ctrl-area:hover .ico-fold{
+	background-repeat: no-repeat;
+	background-position: -10px -15px;
+	background-color:transparent;
+}
+/**
+ * 歌词显示区域，lyric ↓
+ */
+.lyric-wrap {
+	display:inline-block;
+	float:left;
+	/*width:200px;*/
+	width:0px;
+	height:75px;
+	border-radius:2px;
+	margin:2px 0 0 1px;
+	overflow: hidden;
+}
+.lyric-wrap .lyric-bg {
+	position:relative;
+	padding:10px 30px;
+	border-radius:2px;
+}
+.lyric-wrap .content {
+	position:relative;
+	height:55px;
+	overflow:hidden;
+	text-align:center;
+}
+.lyric-wrap .ico-close {
+	position:absolute;
+	right:5px;
+	top:5px;
+}
+.i-wrap-lyrics p {
+	display:block;
+	transition:color .5s ease;
+}
+.i-wrap-lyrics .cur-word {
+	color:#fff;
+	line-height:18px;
+}
+.lyric-wrap .i-wrap-lyrics {
+	position:absolute;
+	top:0px;
+	left:0px;
+	-webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.lyric-move-body {
+	user-select:none;
+	cursor:pointer;
+}
+/**
+ * 播放列表，搜索，排行榜区域 panel-area ↓
+ */
+.panel-area {
+	position:absolute;
+	left:0;
+	top:-298px;
+	overflow:hidden;
+	/*width:685px;*/
+	width:0px;
+	height:300px;
+	border-top-left-radius:2px;
+	border-top-right-radius:2px;
+}
+.panel-area a, .panel-area span {
+	display:inline-block;
+}
+.panel-area .title-box {
+	position:relative;
+	height:48px;
+	margin-bottom:6px;
+	border-bottom:solid 1px #565656;
+	color:#fff;
+}
+.ul-title {
+	float:left;
+	margin:16px 0 0 21px;
+}
+.ul-title .li-title {
+	margin-right:38px;
+	float:left;
+}
+.title-current {
+	position:relative;
+	height:33px;
+	overflow:hidden;
+}
+.ul-title .title {
+	font-size:14px;
+	font-weight:bold;
+}
+.ul-title .ani-border {
+	bottom:-2px;
+	opacity:0;
+	display:inline-block;
+	position:absolute;
+	left:0;
+	width:100%;
+	transition:all .2s linear;
+	z-index: 1;
+}
+.title-current:hover .ani-border, .title-current .ani-active{
+	opacity:1;
+	bottom:0;
+	border-bottom:solid 2px #fa7d3c;
+}
+/**
+ * 搜索位置的配置项
+ */
+.title-box .opt-box {
+	float:right;
+	height:24px;
+	margin:12px 32px 0 0;
+}
+.search-box {
+	vertical-align:middle;
+	width:248px;
+	height:24px;
+	border:solid 1px #050505;
+	background: #3a3a3a;
+}
+.search-box .ipt-text {
+	width:210px;
+	height:20px;
+	margin-left:8px;
+	outline: none;
+	background: none;
+	color:#808080;
+	vertical-align: middle;
+	border:none;
+}
+.search-box .search-btn {
+	width:15px;
+	height:16px;
+	padding:4px 3px;
+	overflow:hidden;
+	vertical-align:middle;
+}
+.search-btn .ico-search {
+	display:inline-block;
+	width:15px;
+	height:16px;
+	background-repeat: no-repeat;
+	background-position: -65px -125px;
+	background-color:transparent;
+}
+.search-btn .ico-search:hover {
+	background-repeat: no-repeat;
+	background-position: -90px -125px;
+	background-color:transparent;
+}
+/**
+ * 列表panel 的关闭按钮
+ */
+.opt-btn {
+	position:absolute;
+	top:10px;
+	right:10px;
+}
+.ico-close {
+	width:7px;
+	height:7px;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-color:transparent;
+}
+.ico-close:hover {
+	background-repeat: no-repeat;
+	background-position: -10px 0;
+	background-color:transparent;
+}
+/**
+ * 歌曲列表
+ */
+.list-area {
+	position:relative;
+	height:244px;
+	overflow:hidden;
+}
+/**
+ * 歌曲控制面板所有信息在song-list中包含了，只需要改变song-list即可展示出各个部分
+ */
+.song-list {
+	height:250px;
+	width:2055px;
+	position:relative;
+	/*left:-1370px;*/
+	left:0px;
+	background: rgba(0, 0, 0, 0.2);
+	transition:left .3s ease;
+}
+.imc-i-list {
+	height:100%;
+	width:685px;
+	float:left;
+	overflow:hidden;
+	position:relative;
+}
+/**
+ * 播放列表
+ */
+.list-p-item {
+	height:28px;
+	position:relative;
+	color:#808080;
+	line-height:28px;
+}
+.list-p-item .music-del {
+	margin-left:20px;
+	float:left;
+	height:28px;
+}
+.ico-del-lite-v2 {
+	
+	width:12px;
+	height:12px;
+	vertical-align:middle;
+	margin-right:2px;
+	margin-top:-2px;
+	background-repeat: no-repeat;
+	background-position: 0 -160px;
+	background-color:transparent;
+}
+.list-i-playing .music-del-hov:hover {
+	color:#fff;
+	cursor:pointer;
+}
+.list-i-playing .music-del-hov:hover .ico-del-lite-v2{
+	background-repeat: no-repeat;
+	background-position: -45px -40px;
+	background-color:transparent;
+}
+.imc-list-info {
+	overflow:hidden;
+	width:100%;
+	height:100%;
+	position:relative;
+	_background:url(about:blank);
+}
+.imc-wrap-ul {
+	position:relative;
+	height:100%;
+	width:702px;
+	overflow-y:scroll;
+	overflow-x:hidden;
+	margin-right:-30px;
+	padding-right:30px;
+}
+.imc-wrap-ul .list-wrap {
+	width:685px;
+	height:auto;
+	margin-right:-30px;
+	padding-right:30px;
+	overflow-y:scroll;
+	overflow-x:hidden;
+}
+.panel-area .list-box {
+	display:inline-block;
+	float:left;
+	width:670px;
+	padding-bottom:6px;
+}
+.list-box .ul-list {
+	margin-bottom:28px;
+}
+/**
+ * 歌曲播放时歌词颜色
+ */
+.list-box .ul-list .current {
+	color:#fa7d3c;
+}
+.ul-list .li-item {
+	height:28px;
+	position:relative;
+	cursor:pointer;
+	color:#808080;
+	line-height:28px;
+}
+.ul-list .li-item:hover {
+	background: #000;
+	color:#fff;
+}
+.li-item .music-name {
+	width:374px;
+	margin-left:20px;
+	float:left;
+	height:28px;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+.li-item .singer-name {
+	width:240px;
+	margin-left:10px;
+}
+.li-item .opt-box {
+	-display:none;
+	position:absolute;
+	top:2px;
+	right:18px;
+	width:80px;
+	white-space:nowrap;
+}
+.li-item .opt-box .ico-ctrl {
+	margin-left:12px;
+	background-color:transparent;
+}
+/**
+ * 单曲点赞按钮
+ */
+.li-item .opt-box .ico-like-lite {
+	width:11px;
+	height:12px;
+	background-repeat: no-repeat;
+	background-position: -25px 0;
+	background-color:transparent;
+	/**
+	 * 点击后：background: url(../images/ico_btn_player.png) no-repeat -25px -140px;
+	 */
+}	
+/**
+ * 单曲分享
+ */
+.li-item .opt-box .ico-share-lite {
+	width:13px;
+	height:12px;
+	background-repeat: no-repeat;
+	background-position: -25px -20px;
+	background-color:transparent;
+}
+/**
+ * 删除分享
+ */
+.li-item .opt-box .ico-del-lite{
+	width:12px;
+	height:12px;
+	background-repeat: no-repeat;
+	background-position: -25px -40px;
+	background-color:transparent;
+}
+/**
+ * 单曲操作的hover事件
+ */
+.li-item .opt-box .ico-like-lite:hover {
+	background-repeat: no-repeat;
+	background-position: -45px 0;
+	background-color:transparent;
+}
+.li-item .opt-box .ico-share-lite:hover {
+	background-repeat: no-repeat;
+	background-position: -45px -20px;
+	background-color:transparent;
+}
+.li-item .opt-box .ico-del-lite:hover {
+	background-repeat: no-repeat;
+	background-position: -45px -40px;
+	background-color:transparent;
+}
+/**
+ * 滚动条
+ */
+.scroll-box {
+	top:28px;
+	bottom:10px;
+	position:absolute;
+	overflow:hidden;
+	right:10px;
+	width:5px;
+}
+.scroll-box .scroll-bar {
+	position:absolute;
+	border-radius:3px;
+	width:5px;
+	background: #808080;
+	top:0%;
+	height:50%;
+	display:none;
+}
+/**
+ * 亚洲新歌榜
+ */
+.list-i-news {
+	height:100%;
+	width:685px;
+	float:left;
+	overflow:hidden;
+	position:relative;
+}
+.panel-area .ico-rig-play {
+	width:6px;
+	height:10px;
+	vertical-align: middle;
+	margin-right:2px;
+	background-repeat: no-repeat;
+	background-position: 0 -180px;
+	background-color:transparent;
+}
+.panel-area .music-del-hov:hover {
+	color:#fff;
+	cursor:pointer;
+}
+.panel-area .music-del-hov:hover .ico-rig-play{
+	background-repeat: no-repeat;
+	background-position: -10px -180px;
+	background-color:transparent;
+}
+
+/**
+ * 错误样式
+ */
+.ul-list .errorinfoMes {
+	position:relative;
+	font-size:16px;
+	width:100%;
+	line-height:200px;
+	color:#fff;
+	text-align:center;
+}
+.ul-list .errorinfoMes i {
+	position:absolute;
+	left:45%;
+	top:28px;
+	width:37px;
+	height:43px;
+	background:url(../images/ico_btn_player.png) no-repeat -120px -90px;
+}
+
+/**
+ * 开始搜索的提醒
+ */
+.saySearching {
+	font-size:16px;
+	width:100%;
+	line-height:200px;
+	color:#fff;
+	text-align:center;
+}
+/**
+ *   迷你播放器
+ */
+.PCD-mplayer {
+	transition:left 0.3s ease 0s;
+	position:fixed;
+	bottom:33px;
+	left:0px;
+	z-index: 9999;
+}
+.PCD-mplayer a {
+	color:#fff;
+}
+.PCD-mplayer .tiny {
+	position:relative;
+}
+
+.tiny-panel-area {
+	position:relative;
+	display:inline-block;
+	float:left;
+	width:50px;
+	height:50px;
+	background: #151516;
+}
+.tiny-fold-ctrl-area {
+	position:relative;
+	display:-none;
+	float:left;
+	width:16px;
+	height:50px;
+	background: #151516;
+	border-radius:0 3px 3px 0;
+
+}
+.ico-tiny-state {
+	top:19px;
+	left:20px;
+	width:15px;
+	height:18px;
+	position:absolute;
+	z-index: 2;
+	display:inline-block;
+	background-repeat:no-repeat;
+	background-color:transparent;
+	background-position:-65px -160px;
+}
+.tiny-panel-area .ico-pause-state {
+	background-position:-65px -180px;
+}
+.tiny-panel-area .mask, .tiny-panel-area .pic {
+	display:block;
+	width:50px;
+	height:50px;
+	border:0;
+}
+.tiny-panel-area .mask {
+	position:absolute;
+	top:0;
+	left:0;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 1;
+}
+.tiny-fold-ctrl-area .ico-unfold {
+	position:absolute;
+	top:20px;
+	left:5px;
+	width:6px;
+	height:9px;
+	background-repeat: no-repeat;
+	background-position: 0 -30px;
+	background-color:transparent;
+}
+.tiny-fold-ctrl-area:hover .ico-unfold{
+	background-repeat: no-repeat;
+	background-position: -10px -30px;
+	background-color:transparent;
+}
