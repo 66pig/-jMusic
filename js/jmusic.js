@@ -436,6 +436,12 @@ jM.$('.search-box .ipt-text')[0].onkeydown = function( ev ) {
 	var ev = ev || window.event;
 	if( ev.keyCode == 13 ) {
 		oSongList.style.left = - 2*685 + 'px'; // 
+		for( var i=0; i < btnLen; i++ )
+		{	// 每次点击歌曲菜单时遍历清除其余菜单按钮的样式
+			//（但不能包含搜索按钮）因为搜索按钮只是借助了这个class那么的事件
+			var spanl = jM.$( 'span',  cLiTitle[ i ] )[ 1 ];
+			jM.removeClass( spanl, 'ani-active' );
+		}
 		if( this.value == lastinput && this.value != '' )return;
 		if( sOnOff )return;
 			sOnOff = true;
