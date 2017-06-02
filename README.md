@@ -70,8 +70,11 @@
 
 ### 4行代码解释 ###
 1.`<?php session_start();?>`  //启动Session 的初始化 ，分配给用户一个sessionid，次id使用来读取服务器缓存的用户播放记录和新歌榜记录（方便下次快速播放->因为网易api的问题才会考虑缓存新歌榜的记录的）。
+
 2.`<link charset="utf-8" href="css/jmusic.css" type="text/css" rel="stylesheet" />`   // 引入css样式文件
+
 3.`<script charset="utf-8" src="./js/jmusic.js"></script>`   引入js主文件
+
 4.`<script>jMusic.cacheid = '<?php if(!empty(session_id()))echo session_id(); ?>';</script>`  // 将sessionid传递给js主文件通过ajax进行服务器的匹配是否存在此用户的缓存音乐，如果存在就直接返回，没有怎重新从api获取
 
 # 文件目录 #
