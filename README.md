@@ -3,27 +3,39 @@
 好了，步入正题，这个小东西涉及的一些大概知识点：`cRUL`、`ajax`、`session`、`memcache`、`闭包`、`递归`。。差不多就这些把，没别的了，考虑到有些朋友可能对有些知识点遗忘了，哈哈，我特意整理了每个知识点的笔记，笔记讲不是很细，但是应付这个小东西绰绰有余。
 
 `Cookie 与 Session：`http://segmentfault.com/n/1330000009610165
+
 `Mecache：`https://segmentfault.com/n/1330000009605929
+
 `cURL：`https://segmentfault.com/n/1330000009577171
 
 至于如果作为一个前端不知道ajax那我也没办法了，找点资料了解下吧，以为太简单，我就没有整理笔记了，但是如果有网友需要，可以联系我。
 
 # 功能演示 #
 1. 小窗口与大窗口切换
+
 ![tinywindow](https://raw.githubusercontent.com/66pig/-jMusic/f27729b1e1c42c3868994290066f9aa47d38306b/show/1.gif)
 
+
 2. 播放面板的：后退、播放与暂停、前进、播放模式切换、音量（点赞与分享功能没做，和删除功能大同小异，后面有时间了我再补上）、定位播放位置（可拖拽）
+
 ![playing](https://raw.githubusercontent.com/66pig/-jMusic/f27729b1e1c42c3868994290066f9aa47d38306b/show/2.gif)
+
 
 3. 播放列表页、新歌榜（默认显示20首）、歌曲搜索页、列表滚动条。
 ######`注：`这些歌曲均是通过网易接口爬取过来的，因为网易很坑，我拿到的接口中30首差不多就只有5-8首可以正常播放，所以采用了cURL爬取验证，过滤掉了不能放的音乐，如果不知道网易接口怎么用的，可以自行[百度](http://www.baidu.com)######
+
 ![list](https://raw.githubusercontent.com/66pig/-jMusic/f27729b1e1c42c3868994290066f9aa47d38306b/show/4.gif)
 
+
 4. 播放列表的歌曲批量删除、单曲删除，排行榜的批量播放、搜索列表的批量播放。
+
 ![delete](https://raw.githubusercontent.com/66pig/-jMusic/f27729b1e1c42c3868994290066f9aa47d38306b/show/6.gif)
 
+
 5. 歌词的拖拽查看
+
 ![drag](https://raw.githubusercontent.com/66pig/-jMusic/f27729b1e1c42c3868994290066f9aa47d38306b/show/5.gif)
+
 
 # 播放器使用方法（引入方法） #
 1. 将除show文件夹之外的必要文件移动到你要显示播放器所在的文件夹
