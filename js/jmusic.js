@@ -4,7 +4,6 @@
  * js代码未加密，未压缩，保留了制作注释，可以随意修改
  * 但是最终解释权归制作者所有。++++++溜溜猪。
  * segmentfault主页：https://segmentfault.com/u/liuliuzhu
- * 欢迎大家一起交流
  */
 var jM = (function() {
 	var jMusicObj = {
