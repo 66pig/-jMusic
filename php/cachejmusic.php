@@ -52,7 +52,7 @@
     if( isset($_POST['getnews'])) { 
             // echo $_POST['savenews'];
           if(!empty($mem -> get($_POST['getnews']))) {
-             echo $mem -> get($_POST['getnews']);
+             echo $mem -> get($_POST['getnews']).'"}}]';
          }else {
             echo '-1';
          }
