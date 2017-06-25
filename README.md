@@ -4,7 +4,7 @@
 
 `Cookie 与 Session：`http://segmentfault.com/n/1330000009610165
 
-`Mecache：`https://segmentfault.com/n/1330000009605929
+`Memcache：`https://segmentfault.com/n/1330000009605929
 
 `cURL：`https://segmentfault.com/n/1330000009577171
 
